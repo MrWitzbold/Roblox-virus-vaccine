@@ -11,6 +11,16 @@ end
 
 function iterate_in(object)
 	for i,v in pairs(object:GetChildren()) do
+		if v.Name == "Infected" and v:IsA("Script") then
+			print("Found infector script")
+			v.Disabled = true
+		end
+		
+		if v.Name == "Infected" and v:IsA("Script") == false then
+			print("Changing infected name")
+			v.Name = tostring(v.ClassName)
+		end
+		
 		if v.Name == "Lag-Players" then
 			print("Found a lag script")
 			v:Remove()
@@ -60,5 +70,19 @@ function get_rid_of_spreads(object)
 end
 
 get_rid_of_spreads(workspace)
+
+for i,v in pairs(workspace:GetChildren()) do
+	if v.Name == "Infected" then
+		print("Changing infected name")
+		v.Name = tostring(v.ClassName)
+	end
+	
+	for j,w in pairs(v:GetChildren()) do
+		if w.Name == "Infected" then
+			print("Changing infected name")
+			w.Name = tostring(v.ClassName)
+		end
+	end
+end
 
 print("SCAN IS COMPLETE")
