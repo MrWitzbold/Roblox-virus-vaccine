@@ -37,7 +37,7 @@ function iterate_in(object)
 	end
 end
 
-print("Starting scanner")
+print("Started scanner")
 wait(5)
 iterate_in(workspace)
 
