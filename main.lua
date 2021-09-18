@@ -48,10 +48,12 @@ function get_rid_of_spreads(object)
 		
 		if v:IsA("Model") or v:IsA("Folder") or v:IsA("Fire") or v:IsA("Part") then
 			wait(0)
-			get_rid_of_spreads()
 			print("Going deeper...")
+			get_rid_of_spreads(v)
 		end
 	end
 end
 
 get_rid_of_spreads(workspace)
+
+print("SCAN IS COMPLETE")
