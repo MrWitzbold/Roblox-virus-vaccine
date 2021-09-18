@@ -41,6 +41,11 @@ iterate_in(workspace)
 print("NOW DELETING THE SPREADS")
 function get_rid_of_spreads(object)
 	for i,v in pairs(object:GetChildren()) do
+		if v:IsA("Fire") and v:FindFirstChild("Spread") ~= nil then
+			print("Found a fire with spread inside")
+			v:Remove()
+		end
+		
 		if v.Name == "Spread" or v.Name == "ProperGr�mmerNeededInPhilosiphalLocations;insertNoobHere" then
 			print("Found a spread script (deleting it)")
 			v:Remove()
